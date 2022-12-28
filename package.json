@@ -1,0 +1,28 @@
+{
+  "name": "redux",
+  "version": "1.0.0",
+  "description": "",
+  "main": "1401-09-24-redux-improvements.js",
+  "scripts": {
+    "dev": "parcel ./src/index.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "alias": {
+    "@root": "./src",
+    "@root/*": "./src/*"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.8.2",
+    "parcel": "^2.8.2",
+    "punycode": "^1.4.1",
+    "querystring-es3": "^0.2.1"
+  },
+  "dependencies": {
+    "@pixi/filter-kawase-blur": "^3.2.0",
+    "debounce": "^1.2.1",
+    "hsl-to-hex": "^1.0.0",
+    "pixi.js": "^5.3.12",
+    "simplex-noise": "^3.0.0"
+  }
+}
