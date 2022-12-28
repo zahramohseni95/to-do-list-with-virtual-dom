@@ -1,0 +1,2 @@
+export const ADD_TASK = "TODO/ADD_TASK";
+export const TOGGLE_TASK_STATUS = "TODO/TOGGLE_TASK_STATUS";
