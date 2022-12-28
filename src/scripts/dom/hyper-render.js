@@ -1,5 +1,5 @@
 import { store } from "../store/index.store";
-import { toggleTodoStatus } from "../store/todo/todo.actions";
+import { toggleTodoStatus, deleteTodo } from "../store/todo/todo.actions";
 import { isString } from "../utils/is-string.util";
 
 const hyperRenderElement = ({ type, props = {}, children = [] }) => {
@@ -9,10 +9,15 @@ const hyperRenderElement = ({ type, props = {}, children = [] }) => {
 
   // set attributes that should be rendered
   for (const [propKey, propValue] of Object.entries(props)) {
-    if (propKey === "click") {
+    if (propKey === "click" && propValue === "checkbox") {
       $el.addEventListener("click", (e) => {
         const { id } = e.target.parentNode.parentNode;
         store.dispatch(toggleTodoStatus(id));
+      });
+    } else if (propKey === "click" && propValue === "delete") {
+      $el.addEventListener("click", (e) => {
+        const { id } = e.target.parentNode.parentNode;
+        store.dispatch(deleteTodo(id));
       });
     } else if (propKey.startsWith("data")) {
       let propDataKey = propKey.slice(4);
@@ -20,7 +25,7 @@ const hyperRenderElement = ({ type, props = {}, children = [] }) => {
 
       $el.dataset[propDataKey] = propValue;
     } else if (propKey === "check" && propValue) {
-      $el.setAttribute("checked", propValue)
+      $el.setAttribute("checked", propValue);
     } else {
       $el.setAttribute(propKey, propValue);
     }

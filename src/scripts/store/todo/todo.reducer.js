@@ -1,5 +1,5 @@
 // Constants
-import { ADD_TASK, TOGGLE_TASK_STATUS } from "./todo.constants";
+import { ADD_TASK, TOGGLE_TASK_STATUS, DELETE_TASK } from "./todo.constants";
 // Utilities
 import { randomString } from "../../utils/random-string.util";
 
@@ -17,6 +17,11 @@ const initialState = [
 ];
 export function todoReducer(state = initialState, action) {
   switch (action.type) {
+    case DELETE_TASK: {
+      const { id } = action.payload;
+      const newList = state.filter((todo) => todo.id !== id);
+      return newList;
+    }
     case ADD_TASK:
       const id = randomString();
       return [...state, Object.assign({}, action.payload, { id, done: false })];

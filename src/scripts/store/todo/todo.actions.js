@@ -1,4 +1,4 @@
-import { ADD_TASK, TOGGLE_TASK_STATUS } from "./todo.constants";
+import { ADD_TASK, TOGGLE_TASK_STATUS, DELETE_TASK } from "./todo.constants";
 
 export const addTodo = (description) => {
   return {
@@ -6,6 +6,16 @@ export const addTodo = (description) => {
     target: "todo",
     payload: {
       description,
+    },
+  };
+};
+
+export const deleteTodo = (id) => {
+  return {
+    type: DELETE_TASK,
+    target: "todo",
+    payload: {
+      id,
     },
   };
 };

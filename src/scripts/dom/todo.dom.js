@@ -18,28 +18,41 @@ export const todoNode = (todos) =>
           // div
           createElement("div", {
             props: {
-              class: "d-flex align-items-center",
+              class: "d-flex align-items-center w-100",
             },
             children: [
               // checkbox
               createElement("input", {
                 props: {
                   type: "checkbox",
-                  class: "form-check-input me-2",
+                  class: "form-check-input me-2 p-2",
                   value: todo.done,
-                  check:todo.done,
-                  click: "",
+                  check: todo.done,
+                  click: "checkbox",
                 },
               }),
               //todo text
               todo.done
                 ? createElement("del", {
                     props: {
-                      id: "a1",
+                      class:"flex-grow-1",
                     },
                     children: [todo.description],
                   })
-                : todo.description,
+                : createElement("p", {
+                    props: {
+                      class:"flex-grow-1 mb-0",
+                    },
+                    children: [todo.description],
+                  }),
+              //delete button
+              createElement("button", {
+                props: {
+                  class: "btn btn-outline-primary",
+                  click: "delete",
+                },
+                children: ["X"],
+              }),
             ],
           }),
         ],
