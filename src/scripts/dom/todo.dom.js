@@ -1,7 +1,4 @@
-import { store } from "../store/index.store";
 import { createElement } from "./createElement";
-// Actions
-import { toggleTodoStatus } from "../store/todo/todo.actions";
 
 export const todoNode = (todos) =>
   createElement("ul", {
